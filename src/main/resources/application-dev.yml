@@ -1,0 +1,25 @@
+server:
+ # port: 0                          #设置一个随机端口
+  port: 8080
+  servlet:
+ #   context-path: /springboot     #项目路径
+ #   path: /dd                      #dispatcher 路径
+
+person:
+  size: A
+  age: 17
+  content: "size: ${person.size},age: ${person.age}"
+
+logging:
+  level:
+    root: info
+#  path: /var/log
+#  file: my1.log
+
+# 安全验证的账号密码
+spring:
+  security:
+    user:
+      name: xiaoming
+      password: 123
+
