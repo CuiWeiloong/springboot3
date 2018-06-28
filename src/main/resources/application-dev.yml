@@ -1,9 +1,9 @@
 server:
  # port: 0                          #设置一个随机端口
   port: 8080
-  servlet:
- #   context-path: /springboot     #项目路径
- #   path: /dd                      #dispatcher 路径
+#  servlet:
+#    context-path: /springboot     #项目路径
+#    path: /dd                      #dispatcher 路径
 
 person:
   size: A

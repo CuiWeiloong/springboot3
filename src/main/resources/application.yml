@@ -2,10 +2,23 @@ spring:
   profiles:
     active: dev
 
+  thymeleaf:
+    cache: false
+#    prefix: classpath:/templates/
+#    check-template-location: true
+#    suffix: .html
+#    encoding: UTF-8
+#    mode: HTML5
+#    servlet:
+#      content-type: text/html
+
   datasource:
    # diver-class-name: com.mysql.jsbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/cralor
     username: root
     password: ok
 
+mybatis:
+  mapper-locations: classpath:mapper/*.xml #配置文件扫描路径
+  type-aliases-package: com.cralor.entity #数据库映射关系对象扫描路径（可不设置，如果不设置需要在<resultMap type="com.cralor.entity.User" id="bookResult"> type写入完整路径）
 

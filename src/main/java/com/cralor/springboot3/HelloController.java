@@ -3,6 +3,7 @@ package com.cralor.springboot3;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 //@RequestMapping(value = "hello")
@@ -24,7 +25,6 @@ public class HelloController {
     public String say(){
         return "Hello Spring Boot!";
     }
-
     /**
      * 获取url中的参数
      * @param id
@@ -35,7 +35,6 @@ public class HelloController {
     public String hello(@PathVariable("id") String id,@PathVariable("pre") String pre){
         return pre+"Hello Spring Boot!"+id;
     }
-
     /**
      * 获取请求参数1
      * @param id
@@ -45,7 +44,6 @@ public class HelloController {
     public String test(@RequestParam(value = "id",required = false,defaultValue = "0") String id){
         return "Hello Spring Boot!"+id;
     }
-
     /**
      * 获取请求参数2  @GetMapping  默认get请求，@PostMapping 默认post请求
      * @param id
@@ -65,9 +63,18 @@ public class HelloController {
         return person.getSize();
     }
 
-    @GetMapping( "test3")
-    public String test3(){
-        return "dispater:error";
+    /**
+     * 访问static中的静态页面，有后缀。默认无法直接跳转到static下，可以用重定向
+     * @return
+     */
+    @GetMapping( "sss")
+    public ModelAndView test3(){
+        return new ModelAndView("redirect:test.html");
+    }
+    @RequestMapping( "zzz")
+    public ModelAndView test5(ModelAndView modelAndView){
+        modelAndView.setViewName("thymeleaft");
+        return modelAndView;
     }
 
 }
